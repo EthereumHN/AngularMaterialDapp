@@ -28,7 +28,7 @@ export class ContractService {
       window.web3 = new Web3(this.web3Provider);
     } else {
       this.web3Provider = new Web3.providers.HttpProvider(schainEndpoint);
-      // Skale use custom endpoint please change with your key. 
+      // Skale use custom endpoint please change with your key.
       // if you are using linix or ganche cli maybe the port is  http://localhost:8545
       //   Web3.providers.HttpProvider.prototype.sendAsync = Web3.providers.HttpProvider.prototype.send;
       //   this.web3Provider = new Web3(new Web3.providers.HttpProvider('https://rinkeby.infura.io/v3/Private_key'));
@@ -48,13 +48,12 @@ export class ContractService {
             return reject({name: 'account'});
           } else {
             window.web3.eth.getBalance(account, (error, balance) => {
-              if (error === false) {
+              if (balance !== null) {
                 return resolve({
                   originAccount: account,
                   balance: (window.web3.utils.fromWei(balance, 'ether'))
                 });
               } else {
-                console.log(balance);
                 return reject({name: 'balance'});
               }
             });
@@ -117,10 +116,11 @@ export class ContractService {
   }
 
   failure(message: string) {
-     this.snackbar.open(message);
+     this.snackbar.open(message, '' , {   duration: 3000
+     });
   }
 
   succes() {
-   this.snackbar.open('Transaction complete successfuly');
+   this.snackbar.open('Transaction complete successfuly', '' ,{ duration: 300 } );
   }
 }

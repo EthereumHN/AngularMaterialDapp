@@ -44,6 +44,7 @@ export class TransactionComponent implements OnInit {
       this.direction = value.originAccount;
       this.balance = value.balance;
     }).catch((error: any) => {
+      console.log(error);
       contract.failure('Could\'t get the account data, please check if metamask is running correctly and refresh the page');
     });
   }
