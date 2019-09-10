@@ -1,0 +1,39 @@
+<div class="body">
+        <mat-card class="transaction"  *ngIf="balance !== undefined">
+            &nbsp;
+            <section class="header" style="text-align:center">
+                <h4>Your address is:</h4>
+                <h6>{{ direction}} </h6>
+                <h4>Balance:</h4>
+                <h5>{{balance}} ETH</h5>
+              </section>
+              <form [formGroup]="transactionForm">
+              <mat-form-field >
+                  <input matInput type="text" placeholder="Transfer Destiny"  required id="sendaddress"   formControlName="sendaddress">
+                  <mat-error  persistent validation *ngIf="formErrors.sendaddress"> {{ formErrors.sendaddress }} </mat-error >
+                </mat-form-field>
+           &nbsp;
+           <mat-form-field>
+              <input matInput type="text" min=0 label="Ether Amout(ETH)" outlined class="demo-text-field--outline" required id="amount" formControlName="amount">
+              <mat-error  persistent validation *ngIf="formErrors.amount"> {{ formErrors.amount }} </mat-error >
+          </mat-form-field>
+        </form>
+      
+    
+            &nbsp;
+            <div class="button-container">
+              <button mat-button secondary unelevated  class="big-round-shape-button" [disabled]="!transactionForm.valid"(click)="transferEth($event)"><mat-icon *ngIf="!transactionForm.valid">lock</mat-icon><mat-icon *ngIf="transactionForm.valid">input</mat-icon>&nbsp;Transfer Ether</button>
+              &nbsp;
+              <button mat-button (click)="reset()" >Reset</button>
+              &nbsp;
+            </div>
+            &nbsp;
+        </mat-card>
+      
+        <mat-card  *ngIf="balance == undefined">
+          <p>  We'are unable to detected metamask 🦊 or you wallet provider💳 ,Start your metamask or check your connection 😥
+          </p>
+        </mat-card>
+        </div>
+      
+      
