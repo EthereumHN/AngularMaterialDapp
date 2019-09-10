@@ -6,8 +6,8 @@ declare let require: any;
 const Web3 = require('web3');
 const tokenAbi = require('../../../../Contracts/build/contracts/Payment.json');
 declare let window: any;
-const schainEndpoint = "[YOUR_SKALE_CHAIN_ENDPOINT]"; //change here with skale crendentials
-const contract = require("@truffle/contract");
+const schainEndpoint = '[YOUR_SKALE_CHAIN_ENDPOINT]'; // change here with skale crendentials
+const contract = require('@truffle/contract');
 
 @Injectable({
   providedIn: 'root'
@@ -121,6 +121,6 @@ export class ContractService {
   }
 
   succes() {
-   this.snackbar.open('Transaction complete successfuly', '' ,{ duration: 300 } );
+   this.snackbar.open('Transaction complete successfuly', '' , { duration: 300 } );
   }
 }
