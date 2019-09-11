@@ -5,7 +5,7 @@ This  Trufflebox provides a base for Truffle Framework and Angular DAPP. and you
 
 This  was generate
 
-d with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.3.
+d with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.0.
 
 ## Development server
 
@@ -45,6 +45,8 @@ Note the mnemonic 12-word phrase printed on startup, you will need it later.
 6. Navigate into Contracts Directory and install and compile contracts
 ```bash
 npm install & truffle compile 
+if you wanto to deploy to custom network like skale use
+truffle deploy --reset --network skale --compile-all
 ```
 7. Navigate into the Frontend Directory 
   ```bash
