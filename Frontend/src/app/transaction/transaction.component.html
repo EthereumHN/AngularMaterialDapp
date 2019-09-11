@@ -1,43 +1,71 @@
 <div class="body">
-        <mat-card class="transaction"  *ngIf="balance !== undefined">
-            &nbsp;
-            <section class="header" style="text-align:center">
-                <h4>Your address is:</h4>
-                <h6>{{ direction}} </h6>
-                <h4> Your Balance is:</h4>
-                <h5>{{balance}} ETH</h5>
-              </section>
-              <form [formGroup]="transactionForm">
-              <mat-form-field appearance="outline">
-                  <mat-label>Transfer Destiny</mat-label>
-                  <input matInput type="text" placeholder="Transfer Destiny"  required id="sendaddress"   formControlName="sendaddress">
-                  <mat-icon matSuffix>account_balance_wallet</mat-icon>
-                  <mat-error  persistent validation *ngIf="formErrors.sendaddress"> {{ formErrors.sendaddress }} </mat-error >
-                </mat-form-field>
-           &nbsp;
-           <mat-form-field appearance="outline">
-              <mat-label>Ether Amout(ETH)</mat-label>
-              <input matInput type="text" min=0 placeholder="" outlined class="demo-text-field--outline" required id="amount" formControlName="amount">
-              <mat-icon matSuffix>attach_money</mat-icon>
-              <mat-error  persistent validation *ngIf="formErrors.amount"> {{ formErrors.amount }} </mat-error >
-          </mat-form-field>
-        </form>
-      
-    
-            &nbsp;
-            <div class="button-container">
-              <button mat-raised-button color="accent" [disabled]="!transactionForm.valid"(click)="transferEth($event)"><mat-icon *ngIf="!transactionForm.valid">lock</mat-icon><mat-icon *ngIf="transactionForm.valid">input</mat-icon>&nbsp;Transfer Ether</button>
-              &nbsp;
-              <button mat-button (click)="reset()" >Reset</button>
-              &nbsp;
-            </div>
-            &nbsp;
-        </mat-card>
-      
-        <mat-card  *ngIf="balance == undefined">
+      <mat-card  *ngIf="balance == undefined">
           <p>  We'are unable to detected metamask 🦊 or you wallet provider💳 ,Start your metamask or check your connection 😥
           </p>
         </mat-card>
+        <div>
+            <mat-card class="transaction"  *ngIf="balance !== undefined">
+              <mat-tab-group>
+                <mat-tab label="Transaction">
+                  &nbsp;
+                  <section class="header" style="text-align:center">
+                      <h4>Your address is:</h4>
+                      <h6>{{ direction}} </h6>
+                      <h4> Your Balance is:</h4>
+                      <h5>{{balance}} ETH</h5>
+                    </section>
+                    <form [formGroup]="transactionForm">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Transfer Destiny</mat-label>
+                        <input matInput type="text" placeholder="Transfer Destiny"  required id="sendaddress"   formControlName="sendaddress">
+                        <mat-icon matSuffix>account_balance_wallet</mat-icon>
+                        <mat-error  persistent validation *ngIf="formErrors.sendaddress"> {{ formErrors.sendaddress }} </mat-error >
+                      </mat-form-field>
+                 &nbsp;
+                 <mat-form-field appearance="outline">
+                    <mat-label>Ether Amout(ETH)</mat-label>
+                    <input matInput type="text" min=0 placeholder="" outlined class="demo-text-field--outline" required id="amount" formControlName="amount">
+                    <mat-icon matSuffix>attach_money</mat-icon>
+                    <mat-error  persistent validation *ngIf="formErrors.amount"> {{ formErrors.amount }} </mat-error >
+                </mat-form-field>
+              </form>
+                  &nbsp;
+                  <div class="button-container">
+                    <button mat-raised-button color="accent" [disabled]="!transactionForm.valid"(click)="transferEth($event)"><mat-icon *ngIf="!transactionForm.valid">lock</mat-icon><mat-icon *ngIf="transactionForm.valid">input</mat-icon>&nbsp;Transfer Ether</button>
+                    &nbsp;
+                    <button mat-button (click)="reset()" >Reset</button>
+                    &nbsp;
+                  </div>
+                  &nbsp;
+                  </mat-tab>
+                <mat-tab label="Image Uplaod"> <h1>Upload your File!</h1>
+                  <div>
+                    <div *ngIf="error">
+                      {{ error.message }}
+                    </div>
+                    <div *ngIf="uploadResponse.status === 'error'">
+                      {{ uploadResponse.message }}
+                    </div>
+                    <div *ngIf="uploadResponse.status === 'progress'">
+
+
+                      <div role="progressbar" [style.width.%]="uploadResponse.message" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                        {{uploadResponse.message}}%
+                      </div>
+
+                    </div>
+
+                    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+                      <input type="file" name="file" (change)="onFileChange($event)" />
+                      <button mat-button type="submit">Upload</button>
+
+                    </form>
+                  </div>
+                </mat-tab>
+              </mat-tab-group>
+            </mat-card>
+          </div>
         </div>
-      
-      
+
+

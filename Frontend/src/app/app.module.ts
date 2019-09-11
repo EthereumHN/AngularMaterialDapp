@@ -4,12 +4,18 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ContractService } from './services/contract.service';
+import { HttpClientModule } from '@angular/common/http';
 import { AppMaterialModule} from './app.material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
-//UI
+// UI
 import { TransactionComponent } from './transaction/transaction.component';
-import { WelcomeComponent  } from "./welcome/welcome.component";
+import { WelcomeComponent  } from './welcome/welcome.component';
+
+// Services
+import { ContractService } from './services/contract.service';
+import { UploadService} from './services/upload.service';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,12 +27,14 @@ import { WelcomeComponent  } from "./welcome/welcome.component";
     BrowserModule,
     FormsModule,
     FlexLayoutModule,
+    HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     AppRoutingModule,
   ],
   providers: [
-    ContractService
+    ContractService,
+    UploadService
   ],
     bootstrap: [AppComponent]
 })

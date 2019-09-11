@@ -12,9 +12,18 @@
     padding-left: 13%;
     padding-right: 13%;
   }
-  
+
   mat-form-field{
     padding: 12px;
   }
-  
-  
+  .inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+  }
+
+
+

@@ -42,11 +42,15 @@ Note the mnemonic 12-word phrase printed on startup, you will need it later.
  ```
  change the port in truffle-config.js 8545 in windows the port is 7545 but in linux the defaul port is  8545
   ```
-6. Navigate into the Frontend Directory 
+6. Navigate into Contracts Directory and install and compile contracts
+```bash
+npm install & truffle compile 
+```
+7. Navigate into the Frontend Directory 
   ```bash
   npm install & ng serve , And lets Buidl 
   ```
-7. If you want to customize <===
+8. If you want to customize <===
 
 + __First__
 Change the contract in Blockchain/contracts or make your own contract and compile and migrate
@@ -59,7 +63,7 @@ if you wanto more info vistit https://developers.skalelabs.com/getting-started
 
 | Error | Solution |
 |-------|----------|
-| `Module not found: Error: Can't resolve '../../../../../Contracts/build/contracts/Payment.json'` during `ng serve` | Run `truffle compile` |
+| `Module not found: Error: Can't resolve '../../../../../Contracts/build/contracts/Payment.json'` during `ng serve` | Run `truffle compile` inside contracts|
 | `Error: the tx doesn't have the correct nonce.` in MetaMask | Reset MetaMask: Settings -> Reset Account //Warning only with test accounts |
 | `Error getting balance; see log.` in UI, with `Error: MetaCoin has not been deployed to detected network (network/artifact mismatch)` in browser console | Ensure you have started ganache, run `truffle migrate` and configured MetaMask to point to ganache | `Error: i cannot see my account or balance` Ensure you are logged in metamask and refresh | If you have a custom rcp in ganache you can change the dir in `src/app/contract/contract.service.ts line21 with your dir `| `Error: [ethjs-rpc] rpc error with payload` in Metamask | You may need update Ganache and restart metamask because some old vesions give 0 gas and the transaction is mark as  underpriced the error givet is errot with payload we recomend use the newest version of ganache cli  |
 

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ContractService } from "../services/contract.service";
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
+// Services
+import { ContractService } from '../services/contract.service';
+import { UploadService} from '../services/upload.service';
 type TransactionField = 'sendaddress' | 'amount';
 type FormErrors = {[u in TransactionField]: string};
 @Component({
@@ -18,8 +19,10 @@ export class TransactionComponent implements OnInit {
   success: boolean;
   compatible: boolean;
   transactionDone: boolean;
-
+  error;
+  uploadResponse = { status: '', message: '', filePath: '' };
   transactionForm: FormGroup;
+  form: FormGroup;
   formErrors: FormErrors = {
     sendaddress: '',
     amount: '',
@@ -38,8 +41,7 @@ export class TransactionComponent implements OnInit {
   };
 
 // tslint:disable-next-line: no-shadowed-variable
-  constructor(private frb: FormBuilder, private contract: ContractService, private snackbar: MatSnackBar) {
-   this.compatible = contract.compatible;
+  constructor(private frb: FormBuilder, private contract: ContractService, private upload: UploadService, private snackbar: MatSnackBar) {
    contract.seeAccountInfo().then((value: any) => {
       this.direction = value.originAccount;
       this.balance = value.balance;
@@ -51,6 +53,9 @@ export class TransactionComponent implements OnInit {
 
   ngOnInit() {
     this.buildForm();
+    this.form = this.frb.group({
+      file: ['']
+    });
   }
 
   buildForm() {
@@ -85,7 +90,22 @@ export class TransactionComponent implements OnInit {
       this.contract.failure('Transaction failed');
     });
   }
+  onFileChange(event) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.form.get('file').setValue(file);
+    }
+  }
 
+  onSubmit() {
+    const formData = new FormData();
+    formData.append('file', this.form.get('file').value);
+
+    this.upload.upload(formData , 1).subscribe(
+      (res) => this.uploadResponse = res,
+      (err) => this.error = err,
+    );
+  }
   onValueChanged(data?: any) {
     if (!this.transactionForm) { return; }
     const form = this.transactionForm;
