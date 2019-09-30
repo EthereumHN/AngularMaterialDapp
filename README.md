@@ -1,5 +1,5 @@
 
-#  Angular + Skale + Truffle = 💓 ÐAPPS
+#  Angular8 Material + Truffle = 💓 Beautyfull ÐAPP 
 This  Trufflebox provides a base for Truffle Framework and Angular DAPP using the power of the Skale sidechain. and you can make transactions between accounts upload images and Skale up you app with beautiful material design 
 
 
