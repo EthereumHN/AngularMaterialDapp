@@ -1,6 +1,13 @@
 
-#  Angular + Material + Truffle = 💓 ÐAPPS
-This Trufflebox provides a base for Truffle Framework and Angular DAPP using the power of the Material sidechain. and you can make transactions between accounts upload images and Material up your app with beautiful material design 
+<<<<<<< HEAD
+#  Angular8 Material + Truffle = 💓 Beautyfull ÐAPP 
+This  Trufflebox provides a base for Truffle Framework and Angular DAPP using the power of the Skale sidechain. and you can make transactions between accounts upload images and Skale up you app with beautiful material design 
+>>>>>>> 40c370af88434c5ec83355ba01292a9084a2f17d
+
+=======
+#  Angular8 Material + Truffle = 💓 Beautyfull ÐAPP 
+This  Trufflebox provides a base for Truffle Framework and Angular DAPP using the power of the Skale sidechain. and you can make transactions between accounts upload images and Skale up you app with beautiful material design 
+>>>>>>> 40c370af88434c5ec83355ba01292a9084a2f17d
 
 
 This  was generate
