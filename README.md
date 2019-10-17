@@ -1,19 +1,6 @@
-
-<<<<<<< HEAD
 #  Angular8 Material + Truffle = 💓 Beautyfull ÐAPP 
 This  Trufflebox provides a base for Truffle Framework and Angular DAPP using the power of the Skale sidechain. and you can make transactions between accounts upload images and Skale up you app with beautiful material design 
->>>>>>> 40c370af88434c5ec83355ba01292a9084a2f17d
-
-=======
-#  Angular8 Material + Truffle = 💓 Beautyfull ÐAPP 
-This  Trufflebox provides a base for Truffle Framework and Angular DAPP using the power of the Skale sidechain. and you can make transactions between accounts upload images and Skale up you app with beautiful material design 
->>>>>>> 40c370af88434c5ec83355ba01292a9084a2f17d
-
-
-This  was generate
-
-d with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.0.
-
+This  was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.0.
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
