@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Angular-SkaleDapp": {
+    "Angular-MaterialDapp": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -21,7 +21,7 @@
               "path": "./webpack.config.js",
               "replaceDuplicatePlugins": true
             },
-            "outputPath": "dist/Angular-SkaleDapp",
+            "outputPath": "dist/Angular-MaterialDapp",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -30,7 +30,6 @@
             "assets": [
               "src/favicon.ico",
               "src/assets"
-            
             ],
             "styles": [
               "src/styles.scss"
@@ -72,18 +71,18 @@
         "serve": {
           "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
-            "browserTarget": "Angular-SkaleDapp:build"
+            "browserTarget": "Angular-MaterialDapp:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "Angular-SkaleDapp:build:production"
+              "browserTarget": "Angular-MaterialDapp:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Angular-SkaleDapp:build"
+            "browserTarget": "Angular-MaterialDapp:build"
           }
         },
         "test": {
@@ -120,15 +119,24 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "Angular-SkaleDapp:serve"
+            "devServerTarget": "Angular-MaterialDapp:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "Angular-SkaleDapp:serve:production"
+              "devServerTarget": "Angular-MaterialDapp:serve:production"
             }
+          }
+        },
+        "deploy": {
+          "builder": "@netlify-builder/deploy:deploy",
+          "options": {
+            "outputPath": "dist/Angular-MaterialDapp",
+            "netlifyToken": "e783a286d70697d44aa182b1a2a828ebdcbd96ee42837eb85a0ec7b16dadb4e4",
+            "siteId": "1578239f-903e-406f-acb0-a2e1e3d23404"
           }
         }
       }
-    }},
-  "defaultProject": "Angular-SkaleDapp"
+    }
+  },
+  "defaultProject": "Angular-MaterialDapp"
 }

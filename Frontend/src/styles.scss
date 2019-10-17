@@ -1,13 +1,13 @@
 @import '~@angular/material/theming';
 @include mat-core();
 
-$skale-primary: mat-palette($mat-blue-grey, 900);
-$skale-accent:  mat-palette($mat-green, 200);
-$skale-warn:    mat-palette($mat-deep-orange);
+$material-primary: mat-palette($mat-blue-grey, 900);
+$material-accent:  mat-palette($mat-green, 200);
+$material-warn:    mat-palette($mat-deep-orange);
 
-$skale-theme: mat-light-theme($skale-primary, $skale-accent, $skale-warn);
+$material-theme: mat-light-theme($material-primary, $material-accent, $material-warn);
 
-@include angular-material-theme($skale-theme);
+@include angular-material-theme($material-theme);
 
 body {
     margin: 0;

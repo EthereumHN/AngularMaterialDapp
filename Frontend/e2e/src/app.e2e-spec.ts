@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('Angular-SkaleDapp app is running!');
+    expect(page.getTitleText()).toEqual('Angular-MaterialDapp app is running!');
   });
 
   afterEach(async () => {

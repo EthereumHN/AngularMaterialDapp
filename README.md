@@ -1,6 +1,6 @@
 
-#  Angular + Skale + Truffle = 💓 ÐAPPS
-This  Trufflebox provides a base for Truffle Framework and Angular DAPP using the power of the Skale sidechain. and you can make transactions between accounts upload images and Skale up you app with beautiful material design 
+#  Angular + Material + Truffle = 💓 ÐAPPS
+This Trufflebox provides a base for Truffle Framework and Angular DAPP using the power of the Material sidechain. and you can make transactions between accounts upload images and Material up your app with beautiful material design 
 
 
 This  was generate
@@ -45,8 +45,8 @@ Note the mnemonic 12-word phrase printed on startup, you will need it later.
 6. Navigate into Contracts Directory and install and compile contracts
 ```bash
 npm install & truffle compile 
-if you wanto to deploy to custom network like skale use
-truffle deploy --reset --network skale --compile-all
+if you wanto to deploy to custom network like material use
+truffle deploy --reset --network material --compile-all
 ```
 7. Navigate into the Frontend Directory 
   ```bash
@@ -55,12 +55,11 @@ truffle deploy --reset --network skale --compile-all
 8. If you want to customize <===
 
 + __First__
-Change the contract in Blockchain/contracts or make your own contract and compile and migrate
+Change the contract in Blockchain/contracts or make your contract and compile and migrate
 
 + __Second__
-Change the app/service/contract.service.ts with your builded contract .json and you custom directives and functions
-And if you want to change to Skale change the value of schainEndpoint in contract.service.ts
-if you wanto more info vistit https://developers.skalelabs.com/getting-started
+Change the app/service/contract.service.ts with your built contract .json and you custom directives and functions
+if you want more info vistit https://developers.materiallabs.com/getting-started
 ## __Common errors and their solutions__
 
 | Error | Solution |

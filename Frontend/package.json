@@ -1,5 +1,5 @@
 {
-  "name": "angular-skale-dapp",
+  "name": "angular-material-dapp",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -22,7 +22,8 @@
     "@angular/platform-browser": "~8.2.3",
     "@angular/platform-browser-dynamic": "~8.2.3",
     "@angular/router": "~8.2.3",
-    "@skalenetwork/filestorage.js": "^0.2.6",
+    "@netlify-builder/deploy": "^2.0.2",
+    "@materialnetwork/filestorage.js": "^0.2.6",
     "@truffle/contract": "^4.0.32",
     "@truffle/hdwallet-provider": "^1.0.18",
     "dotenv": "^8.1.0",

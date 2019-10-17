@@ -6,8 +6,6 @@ declare let require: any;
 const Web3 = require('web3');
 const tokenAbi = require('../../../../Contracts/build/contracts/Payment.json');
 declare let window: any;
-const schainEndpoint = '[YOUR_SKALE_CHAIN_ENDPOINT]'; // change here with skale crendentials
-const Filestorage = require('@skalenetwork/filestorage.js/src/index');
 const contract = require('@truffle/contract');
 
 @Injectable({
@@ -21,16 +19,13 @@ export class ContractService {
   private accounts: string[];
   public accountsObservable = new Subject<string[]>();
   public success: boolean;
- private filestorage;
   constructor(private snackbar: MatSnackBar) {
     if (typeof window.web3 === 'undefined' || (typeof window.ethereum !== 'undefined')) {
       this.web3Provider = window.ethereum || window.web3;
       window.web3 = new Web3(this.web3Provider);
     } else {
       this.web3Provider = new Web3(new Web3.providers.HttpProvider('http://134.209.56.46:1919'));
-      this.filestorage = new Filestorage(this.web3Provider);
-      console.log(this.filestorage);
-      // Skale use custom endpoint please change with your key.
+      // Material use custom endpoint please change with your key.
       // if you are using linix or ganche cli maybe the port is  http://localhost:8545
       //   Web3.providers.HttpProvider.prototype.sendAsync = Web3.providers.HttpProvider.prototype.send;
       //   this.web3Provider = new Web3(new Web3.providers.HttpProvider('https://rinkeby.infura.io/v3/Private_key'));
@@ -117,13 +112,7 @@ export class ContractService {
     });
   }
 
-  uploadPhoto(address, filePath, fileBuffer) {
-    this.filestorage.uploadFile(address, filePath, fileBuffer);
-  }
 
- downloadPhoto(storagePath) {
-  this.filestorage.downloadToFile(storagePath);
- }
 
   failure(message: string) {
      this.snackbar.open(message, '' , {   duration: 3000

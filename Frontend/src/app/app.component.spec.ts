@@ -16,16 +16,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'Angular-SkaleDapp'`, () => {
+  it(`should have as title 'Angular-MaterialDapp'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('Angular-SkaleDapp');
+    expect(app.title).toEqual('Angular-MaterialDapp');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('Angular-SkaleDapp app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('Angular-MaterialDapp app is running!');
   });
 });
